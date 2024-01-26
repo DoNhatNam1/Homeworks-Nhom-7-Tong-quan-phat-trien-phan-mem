@@ -4,6 +4,9 @@ import { BASE_API_URL } from "@/utils/constant";
 import Link from "next/link";
 
 export const HomeScreen = () => {
+  if(!BASE_API_URL){
+    return null;
+  }
   return (
     <div className="w-full h-96 grid place-content-center gap-5">
     <Link 
