@@ -61,7 +61,8 @@ export const Bai1 = () => {
           type="number" 
           value={inputValue} 
           onChange={(e) => setInputValue(e.target.value)}
-          className="bg-slate-400"
+          placeholder="Example: 3"
+          className="bg-slate-100"
           />
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
