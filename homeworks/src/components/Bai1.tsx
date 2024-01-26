@@ -5,10 +5,15 @@ import { Button, Form, Input } from "antd";
 
 export const Bai1 = () => {
   const [data, setData] = React.useState<number[] | undefined>([]);
+  const [inputValue, setInputValue] = React.useState("");
 
-  const onFinish = (values: { values: any }) => {
-    if (values.values < 1 || values.values > 1000000) {
-      return console.log("Values không hợp lệ:", values.values);
+  // Logic when Submitted Successfully
+  const onFinish = (values: { values: number }) => {
+    if (typeof (values.values * 1) !== 'number' || values.values * 1 < 1 || values.values * 1 > 1000000) {
+      console.log("Values không hợp lệ:", values.values);
+      setInputValue("");
+      setData([])
+      return;
     }
     let temp = values.values;
     let result = [temp];
@@ -22,18 +27,21 @@ export const Bai1 = () => {
       if (result.length > 1000) {
         console.log("Quá nhiều giá trị, dừng lại để tránh lỗi out of memory");
         setData(result);
+        setInputValue("");
         return;
       }
     }
     setData(result);
+    setInputValue("");
   };
 
+    // Logic when Submitted Fail
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
   };
 
   return (
-    <>
+    <div className="w-full h-96 grid place-content-center">
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -49,7 +57,12 @@ export const Bai1 = () => {
           name="values"
           rules={[{ required: true, message: "Please input a number!" }]}
         >
-          <Input />
+          <Input 
+          type="number" 
+          value={inputValue} 
+          onChange={(e) => setInputValue(e.target.value)}
+          className="bg-slate-400"
+          />
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button type="primary" htmlType="submit" className="bg-blue-950">
@@ -67,6 +80,6 @@ export const Bai1 = () => {
           </span>
         ))}
       </div>
-    </>
+    </div>
   );
 };
