@@ -1,9 +1,9 @@
 
 import { HomeScreen } from '@/components/HomeScreen';
+import { BASE_API_URL } from '@/utils/constant';
 
 export default function Home() {
-  const BASE_URL = process.env.NEXT_PUBLIC_BASE_API_URL
-  if(!BASE_URL){
+  if(!BASE_API_URL){
     return null;
   }
   return (
