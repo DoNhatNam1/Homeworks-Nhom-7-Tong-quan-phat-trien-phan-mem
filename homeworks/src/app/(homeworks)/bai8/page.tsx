@@ -1,10 +1,10 @@
 
-import { Bai1 } from '@/components/Bai1'
+import { Bai8 } from '@/components/Bai8'
 
 export default function Page() {
   return (
     <>
-    <Bai1/>
+    <Bai8/>
     </>
   );
 }

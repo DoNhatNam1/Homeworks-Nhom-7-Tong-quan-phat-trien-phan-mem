@@ -1,9 +1,9 @@
-import { Bai2 } from "@/components/Bai2";
+import { Bai9 } from "@/components/Bai9";
 
 export default function Page() {
   return (
     <>
-    <Bai2/>
+    <Bai9/>
     </>
   );
 }

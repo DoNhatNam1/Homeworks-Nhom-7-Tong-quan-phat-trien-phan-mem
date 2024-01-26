@@ -5,7 +5,7 @@ import { Button, Form, Input } from "antd";
 
 // ... (imports)
 
-export const Bai2 = () => {
+export const Bai9 = () => {
   const [data, setData] = React.useState<number | undefined>();
   const [inputValue1, setInputValue1] = React.useState("");
   const [inputValue2, setInputValue2] = React.useState("");
