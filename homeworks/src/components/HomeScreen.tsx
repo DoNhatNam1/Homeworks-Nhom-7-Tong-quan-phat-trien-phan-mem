@@ -8,7 +8,9 @@ export const HomeScreen = () => {
     return null;
   }
   return (
-    <div className="w-full h-96 grid grid-cols-3 grid-row-3 gap-x-2 gap-y-3 p-8">
+    <div className="space-y-5 px-44 text-center mt-14">
+      <h1 className="font-bold text-3xl">Chào mừng đến với bài tập về nhà của Đỗ Nhật Nam, vui lòng chọn 1 câu bất kỳ để bắt đầu!</h1>
+        <div className="w-full h-96 grid grid-cols-3 grid-row-3 gap-x-2 gap-y-3">
           <Link 
       href={`${BASE_API_URL}/bai1`}
       className="px-8 py-2 bg-purple-950 hover:bg-purple-500 text-white rounded-xl"
@@ -90,5 +92,7 @@ export const HomeScreen = () => {
     </button>
       </Link>
     </div>
+    </div>
+
   );
 };

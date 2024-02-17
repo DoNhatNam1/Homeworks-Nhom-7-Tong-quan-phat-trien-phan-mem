@@ -34,7 +34,11 @@ export const Bai2 = () => {
   };
 
   return (
-    <div className="w-full h-96 grid place-content-center">
+    <div className="w-full h-96 grid place-content-center space-y-2 px-48">
+      <h1>
+        2. Viết chương trình nhập vào 2 số nguyên dương a và b, cho biết kết quả
+        chia lấy phần dư của a với b.
+      </h1>
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -82,7 +86,11 @@ export const Bai2 = () => {
 
       <div className="mt-6">
         Result:{" "}
-        <Input value={data?.toString()} disabled className="bg-slate-100" />
+        <Input
+          value={data?.toString()}
+          disabled
+          className="bg-slate-100 font-bold"
+        />
       </div>
     </div>
   );

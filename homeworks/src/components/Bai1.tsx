@@ -24,7 +24,8 @@ const Bai1 = () => {
     console.log("Failed:", errorInfo);
   };
   return (
-    <div className="w-full h-96 grid place-content-center">
+    <div className="w-full h-96 grid place-content-center space-y-2 px-48">
+      <h1>1. Nhập vào số nguyên n, hãy in ra giá trị tuyệt đối của n.</h1>
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -59,7 +60,10 @@ const Bai1 = () => {
 
       {error && <div className="text-red-500">{error}</div>}
 
-      <div className="mt-14">Absolute Value: {data}</div>
+      <div className="mt-14">
+        Absolute Value:
+      <Input value={data?.toString()} disabled className="bg-slate-100 font-bold" />
+      </div>
     </div>
   );
 };

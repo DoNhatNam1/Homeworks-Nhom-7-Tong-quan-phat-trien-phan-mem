@@ -9,10 +9,14 @@ export const Bai8 = () => {
 
   // Logic when Submitted Successfully
   const onFinish = (values: { values: number }) => {
-    if (typeof (values.values * 1) !== 'number' || values.values * 1 < 1 || values.values * 1 > 1000000) {
+    if (
+      typeof (values.values * 1) !== "number" ||
+      values.values * 1 < 1 ||
+      values.values * 1 > 1000000
+    ) {
       console.log("Values không hợp lệ:", values.values);
       setInputValue("");
-      setData([])
+      setData([]);
       return;
     }
     let temp = values.values;
@@ -35,13 +39,24 @@ export const Bai8 = () => {
     setInputValue("");
   };
 
-    // Logic when Submitted Fail
+  // Logic when Submitted Fail
   const onFinishFailed = (errorInfo: any) => {
     console.log("Failed:", errorInfo);
   };
 
   return (
-    <div className="w-full h-96 grid place-content-center">
+    <div className="w-full h-96 grid place-content-center space-y-2 px-48">
+      <h1>
+        {" "}
+        Hãy xem xét một thuật toán lấy đầu vào là một số nguyên dương N. Nếu như
+        N là số chẵn thì thuật toán chia nó cho hai và nếu N là số lẻ, thuật
+        toán sẽ nhân nó với ba và cộng thêm một. Thuật toán lặp lại điều này cho
+        đến khi N là một. Ví dụ, N=3 thì thuật toán như sau: 3-{">"}10-{">"}5-
+        {">"}16-{">"}số 8-{">"}4-{">"}2-{">"}1 Đầu vào Dòng đầu vào duy nhất
+        chứa số nguyênNNN. đầu ra In một dòng chứa tất cả các giá trị của N
+        trong quá trình thuật toán. Hạn chế 1 ≤ N ≤ 10^6 Ví dụ Đầu vào: 3 Đầu
+        ra: 3 10 5 16 8 4 2 1
+      </h1>
       <Form
         name="basic"
         labelCol={{ span: 8 }}
@@ -57,12 +72,12 @@ export const Bai8 = () => {
           name="values"
           rules={[{ required: true, message: "Please input a number!" }]}
         >
-          <Input 
-          type="number" 
-          value={inputValue} 
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Example: 3"
-          className="bg-slate-100"
+          <Input
+            type="number"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="Example: 3"
+            className="bg-slate-100"
           />
         </Form.Item>
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
