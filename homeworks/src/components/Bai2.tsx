@@ -5,25 +5,25 @@ import { Button, Form, Input } from "antd";
 
 // ... (imports)
 
-export const Bai9 = () => {
+export const Bai2 = () => {
   const [data, setData] = React.useState<number | undefined>();
   const [inputValue1, setInputValue1] = React.useState("");
   const [inputValue2, setInputValue2] = React.useState("");
   const [error, setError] = React.useState<string>("");
 
-  const onFinish = (values: { value1: string, value2: string }) => {
-    const N = parseInt(values.value1);
-    const inputArr = values.value2.split(" ").map((item) => parseInt(item.trim()));
-    if (N < 2 || N > 200000) {
-      setError("N must be between 2 and 200,000");
+  const onFinish = (values: { value1: string; value2: string }) => {
+    const a = parseInt(values.value1);
+    const b = parseInt(values.value2);
+    if (isNaN(a) || isNaN(b)) {
+      setError("Vui lòng nhập kiểu số");
       return;
     }
-    if (inputArr.length !== N - 1 || inputArr.some((num) => num < 1 || num > N)) {
-      setError("Invalid input for values");
+    if (b === 0) {
+      setError("Không thể chia cho 0");
       return;
     }
-    const missingNumber = Array.from({ length: N }, (_, i) => i + 1).find((num) => !inputArr.includes(num));
-    setData(missingNumber);
+    const remainder = a % b;
+    setData(remainder);
     setInputValue1("");
     setInputValue2("");
     setError("");
@@ -46,40 +46,42 @@ export const Bai9 = () => {
         autoComplete="off"
       >
         <Form.Item
-          label="Giới hạn N"
+          label="Number a"
           name="value1"
           rules={[{ required: true, message: "Please input a number!" }]}
         >
-          <Input 
-            value={inputValue1} 
+          <Input
+            value={inputValue1}
             onChange={(e) => setInputValue1(e.target.value)}
-            placeholder="Example: 5"
+            placeholder="Enter number a"
             className="bg-slate-100"
           />
         </Form.Item>
+
         <Form.Item
-          label="Các con số"
+          label="Number b"
           name="value2"
           rules={[{ required: true, message: "Please input a number!" }]}
         >
-          <Input 
-            value={inputValue2} 
+          <Input
+            value={inputValue2}
             onChange={(e) => setInputValue2(e.target.value)}
-            placeholder="Example: 2 3 1 5"
+            placeholder="Enter number b"
             className="bg-slate-100"
           />
         </Form.Item>
+
         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
           <Button type="primary" htmlType="submit" className="bg-blue-950">
-            Submit
+            Calculate
           </Button>
         </Form.Item>
       </Form>
 
       {error && <div className="text-red-500">{error}</div>}
 
-      <div className="mt-14">
-        Result:
+      <div className="mt-6">
+        Result:{" "}
         <Input value={data?.toString()} disabled className="bg-slate-100" />
       </div>
     </div>
